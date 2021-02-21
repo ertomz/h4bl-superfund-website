@@ -87,8 +87,8 @@
                     <div class="inner">
                         <h3 class="title-center">Send an email to your local representative</h3>
                         <form class="form-location">
-                            <label>County</label>
-                            <input type="text" id="city" name="city">
+                            <label>City</label>
+                            <input type="text" id="input-city" name="city">
                             <label>State<br><span><h5>(Please type out the full state name)</h5></span></label>
                             <select id="input-state">
                                 <option value="AL">Alabama</option>
@@ -143,13 +143,13 @@
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>
-                            <input type="submit" value="Submit" onclick="onClick()">
+                            <input type="button" onclick="onEmailClick()">
                         </form>
 
                         <h1> Example email here </h1>
                         <!-- <input id="input-state" placeholder="Full state name"> </input> -->
                         <!-- <input id="input-city" placehold="Full city name"></input> -->
-                        <button onclick="onClick()">Click to generate email! </button>
+                        <button onclick="onEmailClick()">Click to generate email! </button>
 
                         <p id="senators"> Your senators are: </p>
                         <textarea id="replace"> ... </textarea>
