@@ -48,7 +48,7 @@ function onEmailClick(){
     data_loaded = false;
 
     if (data_loaded == false){
-        req.open("GET", "https://api.jsonbin.io/b/6031d4d1d677700867e5c65b/8", true);
+        req.open("GET", "https://api.jsonbin.io/b/6031d4d1d677700867e5c65b/9", true);
         req.setRequestHeader("secret-key", superfundKey);
         req.send();
 
