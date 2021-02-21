@@ -1,4 +1,9 @@
-const key = "$2b$10$uL8ywCwlTQxBy85XQ6pHe.nOtVeD2otuBBCudT0kar6DrS/IgZ4Fm";
+var superfundKey = "$2b$10$uL8ywCwlTQxBy85XQ6pHe.nOtVeD2otuBBCudT0kar6DrS/IgZ4Fm";
+
+function getState(sel){
+    stateName= sel.options[sel.selectedIndex].text;
+    return stateName
+}
 
 function parseStateCity(data, state, city) {
     let senator1 = data[state]["senators"]["senator_name_1"];
@@ -7,9 +12,13 @@ function parseStateCity(data, state, city) {
     let senatorContact2 = data[state]["senators"]["contact_site_2"];
     let stateCount = data[state]["superfund_sites"];
     let cityCount = 0;
+    let highPop = false;
 
     if (city in data[state]["city"]){
-        cityCount = data[state]["city"][city];
+        cityCount = data[state]["city"][city]["superfund_count"];
+        if ("black_pop_g13" in data[state]["city"][city]){
+            highPop = true;
+        }
         console.log(cityCount);
     }
 
@@ -18,22 +27,20 @@ function parseStateCity(data, state, city) {
     stateString = `There are ${stateCount} superfunds in the state of ${state}`;
 
     document.getElementById("senators").innerHTML = senatorString;
-    document.getElementById("replace").innerHTML = `Dear ${senator1}... ${cityString}...${stateString}`
+    document.getElementById("replace").innerHTML = `Dear ${senator1}... ${cityString}...${stateString}, ${highPop}`
 
 }
 
-function onClick(){
-    let state = document.getElementById("input-state").value;
+function onEmailClick(){
+    let sel = document.getElementById("input-state");
+    let state = getState(sel);
     let city = document.getElementById("input-city").value;
 
     let req = new XMLHttpRequest();
 
     req.onreadystatechange = () => {
         if (req.readyState == XMLHttpRequest.DONE) {
-            data = JSON.parse(req.responseText);
-
-            console.log(data[state]);
-            
+            data = JSON.parse(req.responseText);            
             parseStateCity(data, state, city);
 
         };}
@@ -41,8 +48,8 @@ function onClick(){
     data_loaded = false;
 
     if (data_loaded == false){
-        req.open("GET", "https://api.jsonbin.io/b/6031d4d1d677700867e5c65b/3", true);
-        req.setRequestHeader("secret-key", key);
+        req.open("GET", "https://api.jsonbin.io/b/6031d4d1d677700867e5c65b/8", true);
+        req.setRequestHeader("secret-key", superfundKey);
         req.send();
 
     } else {
