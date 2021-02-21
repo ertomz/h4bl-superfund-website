@@ -90,7 +90,7 @@
                             <label>County</label>
                             <input type="text" id="city" name="city">
                             <label>State<br><span><h5>(Please type out the full state name)</h5></span></label>
-                            <select>
+                            <select id="input-state">
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -143,9 +143,18 @@
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>
-                            <!-- <input type="text" id="state" name="state"> -->
-                            <input type="submit" value="Submit">
+                            <input type="submit" value="Submit" onclick="onClick()">
                         </form>
+
+                        <h1> Example email here </h1>
+                        <!-- <input id="input-state" placeholder="Full state name"> </input> -->
+                        <!-- <input id="input-city" placehold="Full city name"></input> -->
+                        <button onclick="onClick()">Click to generate email! </button>
+
+                        <p id="senators"> Your senators are: </p>
+                        <textarea id="replace"> ... </textarea>
+                        <!-- <button onclick="copyText()"> Click to copy</button> -->
+
                     </div>
                 </section>
 
@@ -222,7 +231,8 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+            <script src="assets/js/main.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="superfund.js"></script>
 	</body>
 </html>
