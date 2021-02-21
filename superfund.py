@@ -10,23 +10,6 @@ def get_data(filename):
         next(infile)
         return (list(infile))
 
-    # Check to see if file path exists, return False if not found
-    '''
-    try:
-        infile = open(filename, "r")
-    except IOError:
-        print("File path not found!")
-        return False
-    else:
-
-        # Skip first line, and then append contents of line as list
-        # infile.readline()
-        all_lines = list(csv.reader(infile, skipinitialspace=True))
-        #for line in infile:
-        #    all_lines.append(line.strip("\n").split(","))
-        return all_lines
-    '''
-
 def main():
     data = get_data("superfund.csv")
     senators = get_data("us-senate.csv")
