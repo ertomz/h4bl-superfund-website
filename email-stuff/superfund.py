@@ -1,4 +1,6 @@
 import csv 
+import json
+
 def get_data(filename):
     """
     Get occurrence_data from csv <filename> as a nested list, one list for each line.
@@ -8,15 +10,16 @@ def get_data(filename):
     with open(filename, newline='', encoding='utf-8') as csvfile:
         infile = csv.reader(csvfile, escapechar="\\")
         next(infile)
-        return (list(infile))
+        data = list(infile)
 
-def main():
-    data = get_data("superfund.csv")
-    senators = get_data("us-senate.csv")
-    name_index = 0
-    state_index = 5
-    city_index = 6
-    county_index = 7
+    return data
+
+def save_to_json(d, name):
+    with open(f'{name}.json', 'w') as outfile:
+        json.dump(d, outfile, ensure_ascii=False)
+
+def state_data(data, senators):
+    state_index = 5    
 
     senator_state_index = 0
     senator_name_index = 15
@@ -46,7 +49,16 @@ def main():
             state_stats[state]["senator_name_2"] = senator
             state_stats[state]["contact_site_2"] = contact
     
-    print(state_stats["New Mexico"])
+    print(state_stats["Georgia"])
+
+    save_to_json(state_stats, "state_data")
+
+def main():
+    data = get_data("superfund.csv")
+    senators = get_data("us-senate.csv")
+
+    state_data(data, senators)
+    
 
 
 if __name__ == "__main__":
