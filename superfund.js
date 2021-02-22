@@ -13,7 +13,7 @@ function parseStateCity(data, state, county) {
     let senatorContact2 = data[state]["senators"]["contact_site_2"];
     let stateCount = parseInt(data[state]["superfund_sites"]);
     let countyCount = 0;
-    let censusPercent = (data[state]["blk_g13_cnt"])/(data[state]['superfund_sites']) * 100
+    let censusPercent = ((data[state]["blk_g13_cnt"])/(data[state]['superfund_sites']) * 100).toFixed(2);
 
     if (county in data[state]["counties"]){
         countyCount = data[state]["counties"][county];
@@ -23,13 +23,16 @@ function parseStateCity(data, state, county) {
 
     
     header = `To The Honorable ${senator1}:`
-    introduction = countyCount < 0 ? `I am writing from ${county}, ${state} in regards to our ${stateCount} Superfund sites in ${state}.`
+    introduction = countyCount <= 0 ? `I am writing from ${county}, ${state} in regards to our ${stateCount} Superfund sites in ${state}.`
                                  : `I am writing from ${county}, ${state} in regards to our ${countyCount} Superfund sites in ${county} and ${stateCount} in ${state}.`    
     
     percentage = censusPercent > 0 ? `Of those in ${state}, ${censusPercent}% are in counties with higher than average proportion of Black Americans in their population.`
                                    : ""
 
     
+    let user_name = document.getElementById("input-name").value;
+    let user_address = document.getElementById("input-address").value;
+    let p_interest = document.getElementById("input-interest").value;
     document.getElementById("senators").innerHTML = senatorString;
     document.getElementById("replace").innerHTML = `${header} 
         ${introduction}  ${percentage}
@@ -42,14 +45,15 @@ function parseStateCity(data, state, county) {
 
         In 2017, Cory Booker introduced the Environmental Cleanup Infrastructure Act, aiming to address environmental racism and assist further EPA cleanup at superfund sites. It did not pass. For any moment in history, now is the time to revamp our commitment to preserving the environment and mitigating racial systems of oppression.
 
+        ${p_interest}
+
         The Trump administration slashed the Superfund program by 30%. I can not accept this as my future. The time is now to invest in health, in racial equality, and in an American system that works for all people.
 
         Thank you for your time, Senator ${senator1}.
 
         Appreciatively,
-        <YOUR NAME>
-        
-        <YOUR ADDRESS>
+        ${user_name}
+        ${user_address}
 
         `
 
