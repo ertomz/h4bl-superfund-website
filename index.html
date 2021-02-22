@@ -72,10 +72,6 @@
                 <section class="wrapper style2">
                     <div class="inner">
                         <h3 class="title-center">Superfund Sites and Percent Black Population</h3>
-                        <!--<style>.embed-container {position: relative; padding-bottom: 50%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style>
-                        <div class="embed-container">
-                            <iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Superfund Sites and Black/Brown Communities" src="//www.arcgis.com/apps/Embed/index.html?webmap=41a19090875945b69c07a06a23628f8c&extent=-138.8677,15.2916,-41.8365,56.2232&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe>
-                        </div> -->
                         <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style>
                         <div class="embed-container">
                             <iframe width="100%" height="800px" src="https://claremont.maps.arcgis.com/apps/MapSeries/index.html?appid=234a70b7d7454535ab4faabed6b26b7f" frameborder="0" scrolling="no"></iframe>                    </div>
@@ -87,9 +83,15 @@
                     <div class="inner">
                         <h3 class="title-center">Send an email to your local representative</h3>
                         <form class="form-location">
+                            <label>Name</label>
+                            <input type="text" id="input-name" name="name">
+                            <label>Address</label>
+                            <input type="text" id="input-address" name="address">
+                            <label>Personal Interest (optional)<br><span><h5>Briefly describe your relationship to polluted environments and why you are passionate about the Superfund’s purpose.</h5></span></label>
+                            <input type="text" id="input-address" name="address">
                             <label>City</label>
                             <input type="text" id="input-city" name="city">
-                            <label>State<br><span><h5>(Please type out the full state name)</h5></span></label>
+                            <label>State</label>
                             <select id="input-state">
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -143,7 +145,7 @@
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>
-                            <input type="button" onclick="onEmailClick()">
+                            <input type="button" onclick="onEmailClick()" value="Click to generate email!">
                         </form>
 
                         <h1> Example email here </h1>
@@ -159,26 +161,7 @@
                 </section>
 
 				<!-- Section -->
-					<section class="wrapper style1">
-						<div class="inner">
-							<div class="flex flex-2">
-								<div class="col col2">
-									<h3>Suspendisse quis massa vel justo</h3>
-									<p>Etiam posuere hendrerit arcu, ac blandit nulla. Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex.</p>
-									<p>Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex. </p>
-									<a href="#" class="button">Learn More</a>
-								</div>
-								<div class="col col1 first">
-									<div class="image round fit">
-										<a href="generic.html" class="link"><img src="images/pic02.jpg" alt="" /></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-
-				<!-- Section -->
-					<section class="wrapper style">
+					<section class="wrapper style2">
 						<div class="inner">
 							<header class="align-center">
 								<h2>Aliquam ipsum purus dolor</h2>
@@ -187,7 +170,8 @@
                             <p>
                                 The map created above references the EPA's Superfund data and the 2019 United States Census.
                                 The 2019 Census lists 3142 counties. Of these, the average population percentage of Black residents is approximately 13.4%. 
-                                Thus, the census and superfund data was merged and analyzed for sites in counties over 
+                                Thus, the census and superfund data was merged and analyzed for sites in counties with over 13.4% Black residents. 
+                                About 7% of all counties fit into this category of having both Superfund sites and an above average Black population percentage.
                                 
                             </p>
 							<div class="flex flex-3">
@@ -211,6 +195,26 @@
 									</div>
 									<p>Sed congue elit malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet. </p>
 									<a href="#" class="button">Learn More</a>
+								</div>
+							</div>
+						</div>
+                    </section>
+                    
+
+                <!-- Section -->
+					<section class="wrapper style1">
+						<div class="inner">
+							<div class="flex flex-2">
+								<div class="col col2">
+									<h3>Suspendisse quis massa vel justo</h3>
+									<p>Etiam posuere hendrerit arcu, ac blandit nulla. Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex.</p>
+									<p>Sed congue malesuada nibh, a varius odio vehicula aliquet. Aliquam consequat, nunc quis sollicitudin aliquet, enim magna cursus auctor lacinia nunc ex blandit augue. Ut vitae neque fermentum, luctus elit fermentum, porta augue. Nullam ultricies, turpis at fermentum iaculis, nunc justo dictum dui, non aliquet erat nibh non ex. </p>
+									<a href="#" class="button">Learn More</a>
+								</div>
+								<div class="col col1 first">
+									<div class="image round fit">
+										<a href="generic.html" class="link"><img src="images/pic02.jpg" alt="" /></a>
+									</div>
 								</div>
 							</div>
 						</div>
