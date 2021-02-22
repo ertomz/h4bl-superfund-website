@@ -35,6 +35,7 @@ function parseStateCity(data, state, county) {
     let p_interest = document.getElementById("input-interest").value;
     document.getElementById("senators").innerHTML = senatorString;
     document.getElementById("replace").innerHTML = `${header} 
+    
         ${introduction}  ${percentage}
         
         The Superfund is a noble federal project that aims to restore health and safety to Americans across the country by relieving them from contact with toxic materials that are harmful to not only their own livelihood, but that of their lineage. It must, however, like every branch and sector of this government, serve all residents of this country equally. I am therefore writing to ask you to put pressure on Congress to fund the EPA’s Superfund Trust Fund.
